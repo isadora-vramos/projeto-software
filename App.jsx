@@ -81,14 +81,14 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h2>Lista de contatos</h2>
       <Filter handleSearchChange={handleSearchChange} value={newSearch}></Filter>
       <PersonForm addName={addName} 
         newName={newName} 
         newPhone={newPhone}
         handleNameChange={handleNameChange}
         handlePhoneChange={handlePhoneChange}></PersonForm>
-      <h2>Numbers</h2>
+      <h2>Contatos</h2>
       <div>
         {filteredPhone.map(person => 
           <Person person={person}></Person>
