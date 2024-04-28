@@ -11,6 +11,15 @@ const Filter = (props) => {
   );
 }
 
+const Person = (props) => {
+  const {person} = props;
+  return (
+    <>
+      <p key={person.name}>{person.name} - {person.phone}</p>
+    </>
+  );
+}
+
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', phone:'', id: 1}
@@ -76,7 +85,7 @@ const App = () => {
       <h2>Numbers</h2>
       <div>
         {filteredPhone.map(person => 
-          <p key={person.name}>{person.name} - {person.phone}</p>
+          <Person person={person}></Person>
         )}
       </div>
     </div>
