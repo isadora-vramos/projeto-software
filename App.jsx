@@ -25,13 +25,13 @@ const PersonForm = (props) => {
   return (
     <form onSubmit={addName}>
         <div>
-          Name: <input value={newName} onChange={handleNameChange}/>
+          Nome: <input value={newName} onChange={handleNameChange}/>
         </div>
         <div>
-          Number: <input value={newPhone} onChange={handlePhoneChange} />
+          Número: <input value={newPhone} onChange={handlePhoneChange} />
         </div>
         <div>
-          <button type="submit">Add</button>
+          <button type="submit">Adicionar</button>
         </div>
       </form>
   );
@@ -39,7 +39,7 @@ const PersonForm = (props) => {
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', phone:'', id: 1}
+    { name: 'Pessoa exemplo', phone:'(51) 9999-9999', id: 1}
   ]) 
   const [newName, setNewName] = useState('')
   const [newPhone, setNewPhone] = useState('')
@@ -52,9 +52,8 @@ const App = () => {
       phone: newPhone,
       id: persons.length + 1
     };
-    const exists = persons.filter(person => person.name === newName);
-    console.log(exists.length)
-    if(exists.length === 0){
+    const filteredPersonList = persons.filter(person => person.name === newName);
+    if(filteredPersonList.length === 0){
       setPersons(persons.concat(newPerson))
       setNewName('')
       setNewPhone('')
@@ -64,19 +63,15 @@ const App = () => {
   }
 
   const handleNameChange = (event) => {
-    console.log(event.target.value)
     setNewName(event.target.value)
   }
 
   const handlePhoneChange = (event) => {
-    console.log(event.target.value)
     setNewPhone(event.target.value)
   }
 
   const handleSearchChange = (event) => {
-    console.log(event.target.value)
     setNewSearch(event.target.value)
-    console.log(filteredPhone)
   }
 
   const filteredPhone = 
