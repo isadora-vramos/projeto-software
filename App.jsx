@@ -1,5 +1,16 @@
 import { useState } from 'react'
 
+const Filter = (props) => {
+  const {newSearch, handleSearchChange} = props;
+  return (
+    <>
+      <input value={newSearch} 
+        onChange={handleSearchChange} 
+        placeholder='Pesquise na lista'></input>
+    </>
+  );
+}
+
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', phone:'', id: 1}
@@ -50,9 +61,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <input value={newSearch} 
-        onChange={handleSearchChange} 
-        placeholder='Pesquise na lista'></input>
+      <Filter handleSearchChange={handleSearchChange} value={newSearch}></Filter>
       <form onSubmit={addName}>
         <div>
           Name: <input value={newName} onChange={handleNameChange}/>
